@@ -9,6 +9,7 @@ import { Search, Users, BookOpen, TrendingUp, ArrowRight, Building2, GraduationC
 import { useAuth } from "@/lib/auth"
 import Link from "next/link"
 import Image from "next/image"
+import { Chatbot } from "@/components/chatbot"
 
 export default function HomePage() {
   const { user, logout } = useAuth()
@@ -22,7 +23,7 @@ export default function HomePage() {
             <div className="flex items-center gap-4">
               <Image src="/hanwha-symbol.png" alt="Hanwha" width={36} height={36} className="h-9 w-9" />
               <div className="w-px h-7 bg-border/30"></div>
-              <h1 className="text-2xl font-sans font-black text-primary tracking-tight">H-Link</h1>
+              <h1 className="font-black text-primary tracking-tight font-sans text-3xl">H-Link</h1>
             </div>
 
             <nav className="hidden md:flex items-center gap-6">
@@ -78,15 +79,14 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/30"></div>
         <div className="container mx-auto max-w-7xl relative">
           <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-serif font-black text-foreground mb-8 leading-tight">
+            <h2 className="text-5xl font-black text-foreground mb-8 leading-tight font-sans border-0 md:text-6xl">
               Hanwha와 함께하는
-              <span className="luxury-gradient block mt-2">성장의 시작</span>
+              <span className="luxury-gradient block mt-2 leading-[3.5rem]">성장의 시작</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
-              신입사원 온보딩부터 전문 멘토링까지. 
-              H-Link에서 Hanwha의 일원으로 성장하는 여정을 시작하세요.
+              신입사원 온보딩부터 전문 멘토링까지. H-Link에서 Hanwha의 일원으로 성장하는 여정을 시작하세요.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12 shadow-none">
               {user ? (
                 <>
                   <Button
@@ -111,7 +111,7 @@ export default function HomePage() {
                 <>
                   <Button
                     size="lg"
-                    className="text-lg px-10 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
+                    className="text-lg px-10 py-4 rounded-xl font-semibold hover:shadow-xl transition-all shadow-xl"
                     asChild
                   >
                     <Link href="/signup">
@@ -121,7 +121,7 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="text-lg px-10 py-4 rounded-xl font-semibold glass-effect hover:bg-primary/5 transition-all bg-transparent"
+                    className="text-lg px-10 py-4 rounded-xl font-semibold glass-effect hover:bg-primary/5 transition-all bg-orange-200"
                     asChild
                   >
                     <Link href="/mentors">멘토 되기</Link>
@@ -436,6 +436,9 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Chatbot */}
+      <Chatbot />
     </div>
   )
 }
